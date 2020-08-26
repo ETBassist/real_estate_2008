@@ -60,4 +60,18 @@ class HouseTest < Minitest::Test
     assert_equal expected_2, big_house.details
   end
 
+  def test_can_get_price_per_square_foot
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    @house.add_room(@room_4)
+    assert_equal 210.53, @house.price_per_square_foot
+    big_house = House.new("$1000000", "555 Expensive Drive")
+    big_house.add_room(@room_1)
+    big_house.add_room(@room_2)
+    big_house.add_room(@room_3)
+    big_house.add_room(@room_4)
+    assert_equal 526.32, big_house.price_per_square_foot
+  end
+
 end
