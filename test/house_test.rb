@@ -43,4 +43,13 @@ class HouseTest < Minitest::Test
     assert_equal [@room_3], @house.rooms_from_category(:living_room)
   end
 
+  def test_can_get_total_area_of_house
+    @house.add_room(@room_1)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+    assert_equal 670, @house.area
+    @house.add_room(@room_4)
+    assert_equal 1900, @house.area
+  end
+
 end
