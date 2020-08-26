@@ -25,4 +25,10 @@ class HouseTest < Minitest::Test
     assert_equal [@room_1, @room_2], @house.rooms
   end
 
+  def test_can_find_if_above_market_average
+    assert_equal false, @house.above_market_average?
+    big_house = House.new("$1000000", "555 Expensive Drive")
+    assert_equal true, big_house.above_market_average?
+  end
+
 end
