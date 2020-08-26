@@ -52,4 +52,12 @@ class HouseTest < Minitest::Test
     assert_equal 1900, @house.area
   end
 
+  def test_can_get_house_details
+    big_house = House.new("$1000000", "555 Expensive Drive")
+    expected_1 = {"price" => 400000, "address" => "123 sugar lane"}
+    assert_equal expected_1, @house.details
+    expected_2 = {"price" => 1000000, "address" => "555 Expensive Drive"}
+    assert_equal expected_2, big_house.details
+  end
+
 end

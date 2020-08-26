@@ -1,10 +1,14 @@
 class House
-  attr_reader :price, :address, :rooms
+  attr_reader :price, :address, :rooms, :details
 
   def initialize(price, address)
     @price = price
     @address = address
     @rooms = []
+    @details = {
+                "price" => price.delete("$").to_i,
+                "address" => address
+                }
   end
 
   def add_room(room)
